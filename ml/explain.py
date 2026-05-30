@@ -14,8 +14,9 @@ import shap
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
-FEATURES_PATH = pathlib.Path("data/features.parquet")
-MODEL_PATH    = pathlib.Path("models/xgb_model.json")
+import config.settings as settings
+FEATURES_PATH = pathlib.Path(settings.FEATURES_DATA_PATH)
+MODEL_PATH    = pathlib.Path(settings.MODEL_PATH)
 ARTIFACT_DIR  = pathlib.Path("artifacts")
 LABEL_COL     = "is_genuinely_senior"
 N_FORCE_PLOTS = 3   # individual explanations to save

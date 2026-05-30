@@ -12,8 +12,9 @@ import xgboost as xgb
 
 from ml.explain import explain_single
 
-MODEL_PATH   = pathlib.Path("models/xgb_model.json")
-META_PATH    = pathlib.Path("models/feature_meta.json")
+import config.settings as settings
+MODEL_PATH   = pathlib.Path(settings.MODEL_PATH)
+META_PATH    = pathlib.Path(settings.MODEL_PATH).parent / "feature_meta.json"
 
 # Load once at module import — avoids reloading on every agent call
 _model: xgb.XGBClassifier | None = None

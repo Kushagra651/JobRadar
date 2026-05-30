@@ -1,0 +1,9 @@
+{
+  "feature_names": [
+    "min_yoe",
+    "desc_word_count",
+    "comp_mentioned",
+    "remote_flag",
+    "salary_midpoint"
+  ]
+}

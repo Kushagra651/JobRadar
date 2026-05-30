@@ -17,12 +17,12 @@ import mlflow.xgboost
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import roc_auc_score
 
-from config.settings import settings
+import config.settings as settings
 
 # ── paths ──────────────────────────────────────────────────────────────────────
-FEATURES_PATH = pathlib.Path("data/features.parquet")
-MODEL_DIR     = pathlib.Path("models")
-MODEL_PATH    = MODEL_DIR / "xgb_model.json"
+FEATURES_PATH = pathlib.Path(settings.FEATURES_DATA_PATH)
+MODEL_DIR     = pathlib.Path(settings.MODEL_PATH).parent
+MODEL_PATH    = pathlib.Path(settings.MODEL_PATH)
 LABEL_COL     = "is_genuinely_senior"
 
 # ── helpers ────────────────────────────────────────────────────────────────────
@@ -50,7 +50,7 @@ def build_model() -> xgb.XGBClassifier:
 # ── main ───────────────────────────────────────────────────────────────────────
 def train() -> None:
     # Set MLflow tracking URI from settings (falls back to local mlruns/)
-    mlflow.set_tracking_uri(getattr(settings, "MLFLOW_TRACKING_URI", "mlruns"))
+    mlflow.set_tracking_uri(settings.MLFLOW_TRACKING_URI)
     mlflow.set_experiment("jobradar-seniority")
 
     X, y = load_data()

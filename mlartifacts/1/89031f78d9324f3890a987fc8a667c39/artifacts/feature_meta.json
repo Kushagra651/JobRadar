@@ -1,0 +1,12 @@
+{
+  "feature_names": [
+    "seniority_in_title",
+    "is_inflated_title",
+    "hard_skill_count",
+    "min_yoe",
+    "desc_word_count",
+    "comp_mentioned",
+    "remote_flag",
+    "salary_midpoint"
+  ]
+}
